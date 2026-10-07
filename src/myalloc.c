@@ -32,7 +32,7 @@ static Header *morecore(size_t nunits)
 
     up = (Header *)cp;
     up->s.size = nunits;
-    free((void *)(up + 1));
+    mfree((void *)(up + 1));
     return freep;
 }
 
@@ -77,7 +77,7 @@ void *myalloc(size_t size)
     }
 }
 
-void fyree(void *ptr)
+void mfree(void *ptr)
 {
     Header *bp, *p;
 

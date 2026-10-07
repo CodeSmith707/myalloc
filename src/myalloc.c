@@ -4,8 +4,6 @@
 
 #define NALLOC 1024 // Minimum number of units to request
 
-static void *base = NULL;
-
 typedef union Header {
     struct
     {

@@ -1,3 +1,6 @@
+#include <stdlib.h>
+
+
 // Allocates size_t bytes of memory and returns a pointer to the allocated memory.
 // Returns NULL on error
 void *myalloc(size_t size);

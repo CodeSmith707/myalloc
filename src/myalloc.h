@@ -6,4 +6,4 @@
 void *myalloc(size_t size);
 
 // Frees the given pointer previously allocated by myalloc.
-void free(void *ptr);
+void fyree(void *ptr);

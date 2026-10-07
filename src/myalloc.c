@@ -79,4 +79,37 @@ void *myalloc(size_t size)
 
 void free(void *ptr)
 {
+    Header *bp, *p;
+
+    if (ptr == NULL)
+        return;
+
+    bp = (Header *)ptr - 1;
+    for (p = freep; !(bp > p && bp < p->s.next); p = p->s.next)
+    {
+        if (p >= p->s.next && (bp > p || bp < p->s.next))
+            break;
+    }
+
+    if (bp + bp->s.size == p->s.next)
+    {
+        bp->s.size += p->s.next->s.size;
+        bp->s.next = p->s.next->s.next;
+    }
+    else
+    {
+        bp->s.next = p->s.next;
+    }
+
+    if (p + p->s.size == bp)
+    {
+        p->s.size += bp->s.size;
+        p->s.next = bp->s.next;
+    }
+    else
+    {
+        p->s.next = bp;
+    }
+
+    freep = p;
 }

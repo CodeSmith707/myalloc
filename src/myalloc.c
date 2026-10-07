@@ -75,7 +75,7 @@ void *myalloc(size_t size)
     }
 }
 
-void free(void *ptr)
+void fyree(void *ptr)
 {
     Header *bp, *p;
 
